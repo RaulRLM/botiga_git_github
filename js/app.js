@@ -8,7 +8,7 @@ function pintarProductes(llista) {
     enllac.href = `producte.html?id=${p.id}`
     enllac.className = 'card'
     enllac.innerHTML = `
-      <h2>${p.nom}</h2>
+      <h2 id="producte-${p.id}">${p.nom}</h2>
       <p>${p.descripcio}</p>
       <p><strong>${p.preu.toFixed(2)} €</strong></p>
     `
