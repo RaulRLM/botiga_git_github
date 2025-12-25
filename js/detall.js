@@ -9,11 +9,21 @@ const cont = document.getElementById('detall-producte')
 const producte = productes.find((p) => p.id === id)
 
 if (!producte) {
-  cont.innerHTML = '<p>Producte no trobat.</p>'
+  const p = document.createElement('p')
+  p.textContent = 'Producte no trobat.'
+  cont.appendChild(p)
 } else {
-  cont.innerHTML = `
-    <h1>${producte.nom}</h1>
-    <p>${producte.descripcio}</p>
-    <p><strong>${producte.preu.toFixed(2)} €</strong></p>
-  `
+  const h1 = document.createElement('h1')
+  h1.textContent = producte.nom
+  cont.appendChild(h1)
+
+  const descElem = document.createElement('p')
+  descElem.textContent = producte.descripcio
+  cont.appendChild(descElem)
+
+  const preuElem = document.createElement('p')
+  const strong = document.createElement('strong')
+  strong.textContent = `${producte.preu.toFixed(2)} €`
+  preuElem.appendChild(strong)
+  cont.appendChild(preuElem)
 }
